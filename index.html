@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELF Comércio e Serviços Ltda.</title>
+<meta name="description" content="ELF Comércio e Serviços Ltda.: soluções em logística para e-commerce. Franqueada dos Correios em Belo Horizonte e Betim (MG).">
+<style>
+  :root { --bg:#f7f8fa; --card:#ffffff; --fg:#1b2230; --muted:#5a6476; --accent:#0b4ea2; --line:#e2e6ee; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#11141a; --card:#181c24; --fg:#e8ebf1; --muted:#a2aab8; --accent:#7fb0ff; --line:#2a303b; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  header { background:var(--card); border-bottom:1px solid var(--line); }
+  .wrap { max-width:960px; margin:0 auto; padding:0 16px; }
+  header .wrap { padding-top:40px; padding-bottom:36px; }
+  .marca { font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 10px; }
+  h1 { font-size:clamp(1.6rem,4vw,2.3rem); line-height:1.2; margin:0 0 12px; }
+  .lead { color:var(--muted); font-size:1.08rem; max-width:680px; margin:0; }
+  main .wrap { padding-top:36px; padding-bottom:56px; }
+  h2 { font-size:1.15rem; margin:0 0 16px; }
+  section + section { margin-top:40px; }
+  .grade { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px; }
+  .card h3 { font-size:1rem; margin:0 0 4px; }
+  .tipo { color:var(--muted); font-size:.85rem; margin:0 0 10px; }
+  .card p { margin:0; font-size:.94rem; }
+  .cnpj { font-variant-numeric:tabular-nums; }
+  ul.servicos { margin:0; padding-left:20px; }
+  ul.servicos li { margin:4px 0; }
+  a { color:var(--accent); }
+  footer { border-top:1px solid var(--line); color:var(--muted); font-size:.88rem; }
+  footer .wrap { padding-top:20px; padding-bottom:28px; display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="marca">ELF Comércio e Serviços Ltda.</p>
+    <h1>Soluções em logística para e-commerce</h1>
+    <p class="lead">Desde 1993, ajudamos empresas a estruturar, automatizar e acompanhar suas operações de entrega, com suporte ativo do pedido à entrega ao consumidor final. Somos franqueados dos Correios em Belo Horizonte e Betim (MG).</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section>
+      <h2>O que fazemos</h2>
+      <ul class="servicos">
+        <li>Postagem, expedição e coleta programada de encomendas</li>
+        <li>Consultoria operacional e integração de sistemas para pré-postagem</li>
+        <li>SAC ativo para acompanhamento de ocorrências na entrega</li>
+        <li>Sistema de gestão de postagens, etiquetas e rastreamento</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Nossas unidades</h2>
+      <div class="grade">
+        <div class="card">
+          <h3>GAS Shopping Onix</h3>
+          <p class="tipo">Matriz · CNPJ <span class="cnpj">30.929.822/0001-12</span></p>
+          <p>Av. Waldomiro Lobo, 133, Lj 04 A<br>Aarão Reis, Belo Horizonte (MG)<br>CEP 31.814-620</p>
+        </div>
+        <div class="card">
+          <h3>AGF Augusto de Lima</h3>
+          <p class="tipo">Filial · CNPJ <span class="cnpj">30.929.822/0007-08</span></p>
+          <p>Av. Augusto de Lima, 444, Lj 01<br>Centro, Belo Horizonte (MG)<br>CEP 30.190-001</p>
+        </div>
+        <div class="card">
+          <h3>AGF Norte Betim</h3>
+          <p class="tipo">Filial · CNPJ <span class="cnpj">30.929.822/0003-84</span></p>
+          <p>Av. Arthur da Silva Bernardes, 307, Lj 03<br>Ingá, Betim (MG)<br>CEP 32.605-959</p>
+        </div>
+        <div class="card">
+          <h3>GAS Shopping Partage</h3>
+          <p class="tipo">Filial · CNPJ <span class="cnpj">30.929.822/0009-70</span></p>
+          <p>Rodovia BR-381 Fernão Dias, km 492, Lj 1018D<br>São João, Betim (MG)<br>CEP 32.655-505</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contato</h2>
+      <div class="grade">
+        <div class="card">
+          <h3>Telefone</h3>
+          <p><a href="tel:+553132717166">(31) 3271-7166</a></p>
+        </div>
+        <div class="card">
+          <h3>E-mail</h3>
+          <p><a href="mailto:agfaugustodelima@elf.srv.br">agfaugustodelima@elf.srv.br</a><br>
+             <a href="mailto:agfnortebetim@elf.srv.br">agfnortebetim@elf.srv.br</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© ELF Comércio e Serviços Ltda. · CNPJ 30.929.822/0001-12</span>
+    <a href="/privacidade/">Política de Privacidade</a>
+  </div>
+</footer>
+</body>
+</html>
