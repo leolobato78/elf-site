@@ -11,9 +11,9 @@
 <style>
   :root {
     --ink: #15202e;
-    --navy: #1c3d6e;
-    --navy-deep: #12294a;
-    --tape: #e8a317;
+    --navy: #073a7b;
+    --navy-deep: #062a59;
+    --tape: #e49a25;
     --mist: #eef2f6;
     --line: #d8dee7;
     --paper: #ffffff;
@@ -37,8 +37,8 @@
   /* ---------- topo ---------- */
   .topo { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
   .topo .wrap { display: flex; align-items: center; gap: 32px; height: 72px; }
-  .marca { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--navy); }
-  .marca strong { font: 800 2rem/1 var(--display); font-stretch: 118%; letter-spacing: -0.03em; }
+  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); }
+  .marca img { height: 46px; width: auto; display: block; }
   .marca span { font-size: .82rem; color: var(--muted); line-height: 1.2; max-width: 15ch; }
   .menu { display: flex; gap: 24px; margin-left: auto; }
   .menu a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .98rem; }
@@ -162,7 +162,7 @@
 <header class="topo">
   <div class="wrap">
     <a class="marca" href="#inicio" aria-label="ELF Comércio e Serviços, início">
-      <strong>elf</strong><span>Logística para e-commerce</span>
+      <img src="logo-elf.png" alt="ELF" width="68" height="40"><span>Logística para e-commerce</span>
     </a>
     <nav class="menu" aria-label="Seções">
       <a href="#solucoes">Soluções</a>
