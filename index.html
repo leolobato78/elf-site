@@ -3,104 +3,335 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ELF Comércio e Serviços Ltda.</title>
-<meta name="description" content="ELF Comércio e Serviços Ltda.: soluções em logística para e-commerce. Franqueada dos Correios em Belo Horizonte e Betim (MG).">
+<title>ELF | Logística para e-commerce em BH e Betim</title>
+<meta name="description" content="ELF Comércio e Serviços Ltda.: soluções em logística para e-commerce desde 1993. Coleta, integração de sistemas e SAC ativo. Franqueada dos Correios em Belo Horizonte e Betim (MG).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#f7f8fa; --card:#ffffff; --fg:#1b2230; --muted:#5a6476; --accent:#0b4ea2; --line:#e2e6ee; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#11141a; --card:#181c24; --fg:#e8ebf1; --muted:#a2aab8; --accent:#7fb0ff; --line:#2a303b; } }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-  header { background:var(--card); border-bottom:1px solid var(--line); }
-  .wrap { max-width:960px; margin:0 auto; padding:0 16px; }
-  header .wrap { padding-top:40px; padding-bottom:36px; }
-  .marca { font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 10px; }
-  h1 { font-size:clamp(1.6rem,4vw,2.3rem); line-height:1.2; margin:0 0 12px; }
-  .lead { color:var(--muted); font-size:1.08rem; max-width:680px; margin:0; }
-  main .wrap { padding-top:36px; padding-bottom:56px; }
-  h2 { font-size:1.15rem; margin:0 0 16px; }
-  section + section { margin-top:40px; }
-  .grade { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px; }
-  .card h3 { font-size:1rem; margin:0 0 4px; }
-  .tipo { color:var(--muted); font-size:.85rem; margin:0 0 10px; }
-  .card p { margin:0; font-size:.94rem; }
-  .cnpj { font-variant-numeric:tabular-nums; }
-  ul.servicos { margin:0; padding-left:20px; }
-  ul.servicos li { margin:4px 0; }
-  a { color:var(--accent); }
-  footer { border-top:1px solid var(--line); color:var(--muted); font-size:.88rem; }
-  footer .wrap { padding-top:20px; padding-bottom:28px; display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between; }
+  :root {
+    --ink: #15202e;
+    --navy: #1c3d6e;
+    --navy-deep: #12294a;
+    --tape: #e8a317;
+    --mist: #eef2f6;
+    --line: #d8dee7;
+    --paper: #ffffff;
+    --muted: #556275;
+    --ok: #2f7d4f;
+    --display: "Archivo", "Arial Narrow", sans-serif;
+    --body: "Source Sans 3", "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 18px/1.6 var(--body); }
+  a { color: var(--navy); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--tape); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 750; font-stretch: 112%; max-width: 22ch; }
+  h3 { font-size: 1.2rem; font-weight: 700; font-stretch: 105%; }
+  p { margin: 0; }
+
+  /* ---------- topo ---------- */
+  .topo { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .topo .wrap { display: flex; align-items: center; gap: 32px; height: 72px; }
+  .marca { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--navy); }
+  .marca strong { font: 800 2rem/1 var(--display); font-stretch: 118%; letter-spacing: -0.03em; }
+  .marca span { font-size: .82rem; color: var(--muted); line-height: 1.2; max-width: 15ch; }
+  .menu { display: flex; gap: 24px; margin-left: auto; }
+  .menu a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .98rem; }
+  .menu a:hover { color: var(--navy); }
+  .botao { display: inline-block; background: var(--navy); color: #fff; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 6px; white-space: nowrap; }
+  .botao:hover { background: var(--navy-deep); }
+  .botao.claro { background: transparent; color: var(--navy); box-shadow: inset 0 0 0 2px var(--navy); }
+  .botao.claro:hover { background: var(--mist); }
+  @media (max-width: 900px) { .menu { display: none; } .topo .botao { margin-left: auto; padding: 10px 16px; } .marca span { display: none; } }
+
+  /* ---------- abertura: o rastreio é a imagem ---------- */
+  .abertura { background: var(--navy-deep); color: #fff; overflow: hidden; }
+  .abertura .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; padding-top: 88px; padding-bottom: 96px; }
+  .abertura h1 { font-size: clamp(2.4rem, 5.4vw, 4.1rem); font-weight: 800; font-stretch: 116%; letter-spacing: -0.025em; }
+  .abertura .lead { margin-top: 22px; font-size: 1.18rem; color: #cfd9e6; max-width: 34ch; }
+  .abertura .acoes { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .abertura .botao { background: var(--tape); color: var(--ink); }
+  .abertura .botao:hover { background: #f3b937; }
+  .abertura .botao.claro { background: transparent; color: #fff; box-shadow: inset 0 0 0 2px rgba(255,255,255,.55); }
+  .abertura .botao.claro:hover { background: rgba(255,255,255,.08); }
+
+  .etiqueta { position: relative; background: #fff; color: var(--ink); border-radius: 10px; padding: 26px 28px 22px; box-shadow: 0 24px 60px rgba(0,0,0,.35); transform: rotate(-1.2deg); }
+  .etiqueta::before { content: ""; position: absolute; top: -14px; left: 50%; width: 120px; height: 28px; margin-left: -60px; background: var(--tape); opacity: .92; transform: rotate(2deg); border-radius: 2px; }
+  .etiqueta .cab { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 2px dashed var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+  .etiqueta .codigo { font: 700 1.25rem/1 var(--display); font-stretch: 100%; letter-spacing: .06em; }
+  .etiqueta .exemplo { font-size: .8rem; color: var(--muted); }
+  .linha { list-style: none; margin: 0; padding: 0; }
+  .linha li { position: relative; display: grid; grid-template-columns: 22px 1fr; gap: 14px; padding-bottom: 18px; }
+  .linha li:last-child { padding-bottom: 0; }
+  .linha li::before { content: ""; position: absolute; left: 10px; top: 20px; bottom: -2px; width: 2px; background: var(--line); }
+  .linha li:last-child::before { display: none; }
+  .ponto { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--navy); background: #fff; margin-top: 2px; position: relative; z-index: 1; }
+  .linha li.feito .ponto { background: var(--navy); }
+  .linha li.agora .ponto { border-color: var(--tape); background: var(--tape); animation: pulso 2.4s ease-out 1.2s 3; }
+  @keyframes pulso { 0% { box-shadow: 0 0 0 0 rgba(232,163,23,.55); } 100% { box-shadow: 0 0 0 14px rgba(232,163,23,0); } }
+  .evento { font-weight: 600; }
+  .nota { font-size: .92rem; color: var(--muted); }
+  @media (max-width: 900px) {
+    .abertura .wrap { grid-template-columns: 1fr; padding-top: 56px; padding-bottom: 64px; gap: 48px; }
+    .etiqueta { transform: none; }
+  }
+
+  /* ---------- números ---------- */
+  .numeros { border-bottom: 1px solid var(--line); }
+  .numeros .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .numeros div { padding: 30px 24px 30px 0; }
+  .numeros div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+  .numeros b { display: block; font: 750 1.7rem/1.1 var(--display); font-stretch: 110%; color: var(--navy); }
+  .numeros span { font-size: .95rem; color: var(--muted); }
+  @media (max-width: 760px) {
+    .numeros .wrap { grid-template-columns: 1fr 1fr; }
+    .numeros div, .numeros div + div { padding: 22px 12px; border-left: 0; }
+    .numeros div:nth-child(even) { border-left: 1px solid var(--line); }
+    .numeros div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  /* ---------- seções ---------- */
+  section.bloco { padding: 96px 0; }
+  section.bloco.cinza { background: var(--mist); }
+  .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 52px; }
+  .intro p { color: var(--muted); max-width: 46ch; }
+  @media (max-width: 900px) { section.bloco { padding: 64px 0; } .intro { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; } }
+
+  /* soluções: lista em duas colunas, sem cartões */
+  .solucoes { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; }
+  .solucao { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 26px 0; border-top: 1px solid var(--line); }
+  .solucao svg { width: 40px; height: 40px; stroke: var(--navy); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .solucao p { margin-top: 6px; color: var(--muted); font-size: 1rem; }
+  .tarifa { margin-top: 36px; padding: 22px 26px; border-left: 5px solid var(--tape); background: var(--mist); font-size: 1.05rem; }
+  @media (max-width: 760px) { .solucoes { grid-template-columns: 1fr; } }
+
+  /* método: sequência real, então leva números */
+  .passos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; counter-reset: passo; }
+  .passos li { counter-increment: passo; padding: 0 20px 0 0; position: relative; }
+  .passos li::before { content: counter(passo); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff; font: 700 1.1rem/1 var(--display); margin-bottom: 18px; position: relative; z-index: 1; }
+  .passos li::after { content: ""; position: absolute; top: 21px; left: 44px; right: 0; height: 2px; background: #c3ccd8; }
+  .passos li:last-child::after { display: none; }
+  .passos p { margin-top: 8px; color: var(--muted); font-size: .98rem; }
+  @media (max-width: 900px) {
+    .passos { grid-template-columns: 1fr; gap: 26px; }
+    .passos li { display: grid; grid-template-columns: 44px 1fr; column-gap: 18px; padding: 0; }
+    .passos li::before { margin: 0; grid-row: span 2; }
+    .passos li::after { display: none; }
+  }
+
+  /* compromisso */
+  .compromisso { background: var(--navy); color: #fff; }
+  .compromisso .wrap { padding-top: 84px; padding-bottom: 84px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center; }
+  .compromisso blockquote { margin: 0; font: 650 clamp(1.5rem, 3vw, 2.2rem)/1.25 var(--display); font-stretch: 106%; }
+  .compromisso p { color: #cfd9e6; }
+  @media (max-width: 900px) { .compromisso .wrap { grid-template-columns: 1fr; gap: 24px; padding-top: 60px; padding-bottom: 60px; } }
+
+  /* unidades */
+  .unidades { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .unidade { padding: 28px 28px 28px 0; border-bottom: 1px solid var(--line); }
+  .unidade:nth-child(even) { padding-left: 28px; border-left: 1px solid var(--line); }
+  .unidade .cidade { color: var(--muted); font-size: .95rem; margin-top: 2px; }
+  .unidade address { font-style: normal; margin-top: 12px; }
+  .unidade .cnpj { font-size: .88rem; color: var(--muted); margin-top: 10px; }
+  .unidade a { font-weight: 600; display: inline-block; margin-top: 10px; }
+  @media (max-width: 760px) { .unidades { grid-template-columns: 1fr; } .unidade, .unidade:nth-child(even) { padding: 24px 0; border-left: 0; } }
+
+  /* contato */
+  .contato .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: start; }
+  .canais { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .canal { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .canal span { display: block; color: var(--muted); font-size: .92rem; }
+  .canal a { font: 700 1.3rem/1.3 var(--display); font-stretch: 104%; text-decoration: none; color: var(--navy); word-break: break-word; }
+  .canal a:hover { text-decoration: underline; }
+  .contato .lead { margin-top: 18px; color: var(--muted); max-width: 40ch; }
+  .contato .botao { margin-top: 28px; }
+  @media (max-width: 900px) { .contato .wrap { grid-template-columns: 1fr; gap: 32px; } }
+
+  footer { background: var(--ink); color: #aeb9c7; font-size: .92rem; }
+  footer .wrap { padding-top: 32px; padding-bottom: 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+  footer a { color: #fff; }
 </style>
 </head>
 <body>
-<header>
+
+<header class="topo">
   <div class="wrap">
-    <p class="marca">ELF Comércio e Serviços Ltda.</p>
-    <h1>Soluções em logística para e-commerce</h1>
-    <p class="lead">Desde 1993, ajudamos empresas a estruturar, automatizar e acompanhar suas operações de entrega, com suporte ativo do pedido à entrega ao consumidor final. Somos franqueados dos Correios em Belo Horizonte e Betim (MG).</p>
+    <a class="marca" href="#inicio" aria-label="ELF Comércio e Serviços, início">
+      <strong>elf</strong><span>Logística para e-commerce</span>
+    </a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#solucoes">Soluções</a>
+      <a href="#metodo">Como trabalhamos</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="botao" href="#contato">Falar com um consultor</a>
   </div>
 </header>
 
-<main>
-  <div class="wrap">
-    <section>
-      <h2>O que fazemos</h2>
-      <ul class="servicos">
-        <li>Postagem, expedição e coleta programada de encomendas</li>
-        <li>Consultoria operacional e integração de sistemas para pré-postagem</li>
-        <li>SAC ativo para acompanhamento de ocorrências na entrega</li>
-        <li>Sistema de gestão de postagens, etiquetas e rastreamento</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Nossas unidades</h2>
-      <div class="grade">
-        <div class="card">
-          <h3>GAS Shopping Onix</h3>
-          <p class="tipo">Matriz · CNPJ <span class="cnpj">30.929.822/0001-12</span></p>
-          <p>Av. Waldomiro Lobo, 133, Lj 04 A<br>Aarão Reis, Belo Horizonte (MG)<br>CEP 31.814-620</p>
-        </div>
-        <div class="card">
-          <h3>AGF Augusto de Lima</h3>
-          <p class="tipo">Filial · CNPJ <span class="cnpj">30.929.822/0007-08</span></p>
-          <p>Av. Augusto de Lima, 444, Lj 01<br>Centro, Belo Horizonte (MG)<br>CEP 30.190-001</p>
-        </div>
-        <div class="card">
-          <h3>AGF Norte Betim</h3>
-          <p class="tipo">Filial · CNPJ <span class="cnpj">30.929.822/0003-84</span></p>
-          <p>Av. Arthur da Silva Bernardes, 307, Lj 03<br>Ingá, Betim (MG)<br>CEP 32.605-959</p>
-        </div>
-        <div class="card">
-          <h3>GAS Shopping Partage</h3>
-          <p class="tipo">Filial · CNPJ <span class="cnpj">30.929.822/0009-70</span></p>
-          <p>Rodovia BR-381 Fernão Dias, km 492, Lj 1018D<br>São João, Betim (MG)<br>CEP 32.655-505</p>
+<main id="inicio">
+  <section class="abertura">
+    <div class="wrap">
+      <div>
+        <h1>Sua loja vende. A gente acompanha cada entrega até o fim.</h1>
+        <p class="lead">Desde 1993 estruturamos a logística de empresas que vendem on-line: coleta na sua loja, etiquetas geradas pelo seu sistema e suporte ativo quando uma entrega sai do previsto.</p>
+        <div class="acoes">
+          <a class="botao" href="#contato">Falar com um consultor</a>
+          <a class="botao claro" href="#unidades">Encontrar uma unidade</a>
         </div>
       </div>
-    </section>
 
-    <section>
-      <h2>Contato</h2>
-      <div class="grade">
-        <div class="card">
-          <h3>Telefone</h3>
-          <p><a href="tel:+553132717166">(31) 3271-7166</a></p>
+      <div class="etiqueta" aria-label="Exemplo de acompanhamento de uma encomenda">
+        <div class="cab">
+          <span class="codigo">AA123456789BR</span>
+          <span class="exemplo">Exemplo de acompanhamento</span>
         </div>
-        <div class="card">
-          <h3>E-mail</h3>
-          <p><a href="mailto:agfaugustodelima@elf.srv.br">agfaugustodelima@elf.srv.br</a><br>
-             <a href="mailto:agfnortebetim@elf.srv.br">agfnortebetim@elf.srv.br</a></p>
-        </div>
+        <ol class="linha">
+          <li class="feito"><span class="ponto"></span><div><div class="evento">Etiqueta gerada pelo seu sistema</div><div class="nota">Integração com o seu ERP ou plataforma, sem digitação.</div></div></li>
+          <li class="feito"><span class="ponto"></span><div><div class="evento">Coletado na sua loja</div><div class="nota">Coleta programada, com rota e horário combinados.</div></div></li>
+          <li class="agora"><span class="ponto"></span><div><div class="evento">Ocorrência na entrega</div><div class="nota">Nosso SAC identifica e atua antes de o seu cliente reclamar.</div></div></li>
+          <li><span class="ponto"></span><div><div class="evento">Entregue ao destinatário</div><div class="nota">Seu cliente informado em cada etapa.</div></div></li>
+        </ol>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <div class="numeros" aria-label="A ELF em números">
+    <div class="wrap">
+      <div><b>Desde 1993</b><span>atuando com logística e Correios</span></div>
+      <div><b>50 mil</b><span>encomendas por mês, em média</span></div>
+      <div><b>Centenas</b><span>de empresas atendidas</span></div>
+      <div><b>Top 5</b><span>franqueados dos Correios em Minas Gerais</span></div>
+    </div>
   </div>
+
+  <section class="bloco" id="solucoes">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Logística vai muito além de postar a encomenda</h2>
+        <p>Organizamos a sua rotina de expedição, automatizamos a pré-postagem e acompanhamos cada envio até a entrega, para proteger a relação entre a sua loja e quem compra dela.</p>
+      </div>
+
+      <div class="solucoes">
+        <div class="solucao">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 13 20 6l14 7v14l-14 7-14-7z"/><path d="M6 13l14 7 14-7M20 20v14"/></svg>
+          <div><h3>Postagem e expedição</h3><p>Todos os serviços dos Correios para as suas encomendas, com equipe treinada no atendimento.</p></div>
+        </div>
+        <div class="solucao">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 12h20v16H4zM24 17h7l5 6v5H24z"/><circle cx="11" cy="30" r="3"/><circle cx="29" cy="30" r="3"/></svg>
+          <div><h3>Coleta programada</h3><p>Buscamos as encomendas na sua empresa, com rota dedicada, transporte rastreado e seguro.</p></div>
+        </div>
+        <div class="solucao">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="20" rx="2"/><path d="M14 33h12M20 27v6M12 15l4 4-4 4M20 23h8"/></svg>
+          <div><h3>Integração e pré-postagem</h3><p>Seu ERP ou plataforma conectado ao nosso sistema: as etiquetas saem prontas, sem digitação manual.</p></div>
+        </div>
+        <div class="solucao">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 18a12 12 0 0 1 24 0v6"/><rect x="5" y="18" width="6" height="10" rx="2"/><rect x="29" y="18" width="6" height="10" rx="2"/><path d="M32 28c0 4-4 6-9 6"/></svg>
+          <div><h3>SAC ativo</h3><p>Acompanhamos atrasos, tentativas de entrega, problemas de endereço, retiradas e extravios, e informamos você.</p></div>
+        </div>
+        <div class="solucao">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 32V20M16 32V12M24 32v-8M32 32V8"/><path d="M5 32h30"/></svg>
+          <div><h3>Gestão das postagens</h3><p>Sistema com etiquetas, rastreamento, relatórios e logística reversa para controlar todos os envios.</p></div>
+        </div>
+        <div class="solucao">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 34V16l14-9 14 9v18"/><path d="M15 34V22h10v12"/></svg>
+          <div><h3>Posto avançado</h3><p>Para operações de grande volume, equipe e equipamentos da ELF dentro da sua empresa cuidando da expedição.</p></div>
+        </div>
+      </div>
+
+      <p class="tarifa">Você paga somente a tarifa dos Correios. Consultoria, sistema de gestão e SAC fazem parte do nosso atendimento.</p>
+    </div>
+  </section>
+
+  <section class="bloco cinza" id="metodo">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Como estruturamos a sua operação</h2>
+        <p>Cada loja tem a sua rotina. Começamos entendendo a sua operação e só depois desenhamos a solução, para que a logística acompanhe o crescimento das vendas.</p>
+      </div>
+      <ol class="passos">
+        <li><h3>Diagnóstico</h3><p>Conhecemos seu ERP, sua plataforma de vendas e a rotina de expedição.</p></li>
+        <li><h3>Automação</h3><p>Mapeamos tarefas manuais e pontos de erro e redesenhamos o fluxo.</p></li>
+        <li><h3>Integração</h3><p>Conectamos seus sistemas ao nosso para gerar etiquetas automaticamente.</p></li>
+        <li><h3>Política de frete</h3><p>Ajudamos a definir regras coerentes com sua margem e seu serviço.</p></li>
+        <li><h3>Gestão dos envios</h3><p>Treinamos sua equipe para acompanhar status e agir nas ocorrências.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="compromisso" aria-label="Nosso compromisso">
+    <div class="wrap">
+      <blockquote>Não prometemos que atrasos nunca vão acontecer. Garantimos presença: suporte ativo e informação sempre que houver uma ocorrência.</blockquote>
+      <p>O consumidor costuma entender um atraso quando recebe informação. O que gera reclamação é o silêncio. Por isso o acompanhamento faz parte de tudo o que fazemos.</p>
+    </div>
+  </section>
+
+  <section class="bloco" id="unidades">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Nossas unidades</h2>
+        <p>Quatro pontos de atendimento em Belo Horizonte e Betim. Telefone de todas as unidades: <a href="tel:+553132717166">(31) 3271-7166</a>.</p>
+      </div>
+      <div class="unidades">
+        <div class="unidade">
+          <h3>AGF Augusto de Lima</h3>
+          <div class="cidade">Centro, Belo Horizonte</div>
+          <address>Av. Augusto de Lima, 444, loja 01<br>CEP 30190-001</address>
+          <div class="cnpj">CNPJ 30.929.822/0007-08</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Av.+Augusto+de+Lima,+444,+Belo+Horizonte,+MG" target="_blank" rel="noopener">Ver no mapa</a>
+        </div>
+        <div class="unidade">
+          <h3>AGF Norte Betim</h3>
+          <div class="cidade">Ingá, Betim</div>
+          <address>Av. Arthur da Silva Bernardes, 307, loja 03<br>CEP 32605-959</address>
+          <div class="cnpj">CNPJ 30.929.822/0003-84</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Av.+Arthur+da+Silva+Bernardes,+307,+Betim,+MG" target="_blank" rel="noopener">Ver no mapa</a>
+        </div>
+        <div class="unidade">
+          <h3>GAS Shopping Onix</h3>
+          <div class="cidade">Aarão Reis, Belo Horizonte</div>
+          <address>Av. Waldomiro Lobo, 133, loja 04 A<br>CEP 31814-620</address>
+          <div class="cnpj">CNPJ 30.929.822/0001-12 (matriz)</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Av.+Waldomiro+Lobo,+133,+Belo+Horizonte,+MG" target="_blank" rel="noopener">Ver no mapa</a>
+        </div>
+        <div class="unidade">
+          <h3>GAS Shopping Partage</h3>
+          <div class="cidade">São João, Betim</div>
+          <address>Rodovia BR-381 Fernão Dias, km 492, loja 1018D<br>CEP 32655-505</address>
+          <div class="cnpj">CNPJ 30.929.822/0009-70</div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Partage+Shopping+Betim,+MG" target="_blank" rel="noopener">Ver no mapa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco cinza contato" id="contato">
+    <div class="wrap">
+      <div>
+        <h2>Vamos conversar sobre a sua operação</h2>
+        <p class="lead">Conte como a sua loja envia hoje. Um consultor da ELF avalia a sua rotina e propõe a estrutura de coleta, integração e suporte adequada ao seu volume.</p>
+        <a class="botao" href="mailto:agfaugustodelima@elf.srv.br?subject=Quero%20falar%20com%20um%20consultor">Pedir contato de um consultor</a>
+      </div>
+      <div class="canais">
+        <div class="canal"><span>Telefone</span><a href="tel:+553132717166">(31) 3271-7166</a></div>
+        <div class="canal"><span>E-mail, Belo Horizonte</span><a href="mailto:agfaugustodelima@elf.srv.br">agfaugustodelima@elf.srv.br</a></div>
+        <div class="canal"><span>E-mail, Betim</span><a href="mailto:agfnortebetim@elf.srv.br">agfnortebetim@elf.srv.br</a></div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© ELF Comércio e Serviços Ltda. · CNPJ 30.929.822/0001-12</span>
+    <span>ELF Comércio e Serviços Ltda., CNPJ 30.929.822/0001-12. Franqueada dos Correios.</span>
     <a href="/privacidade/">Política de Privacidade</a>
   </div>
 </footer>
+
 </body>
 </html>
